@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <p style="font-size: 1.5rem; font-weight: bold;">Twoje typy:</p>
+  </div>
+  <form id="formularz" action="/typy" method="post">
+    <input type="hidden" name="username" value="<%= locals.username %>">
+    <input type="hidden" name="userId" value="<%= locals.userId %>">
+    <div class="row" style="margin: auto">
+      <% spotkania.forEach(function(spotkanie) { %>
+        <div class="col-sm-12 col-lg-4">
+          <div class="mecz-body">
+            <div class="mecz-druzyna">
+              <%= spotkanie.gospodarz + " - " + spotkanie.gosc %>
+            </div>
+            <div class="mecz-data">
+              <%= spotkanie.data + " / " + spotkanie.godzina %>
+            </div>
+            <div class="mecz-data">Grupa:
+              <!-- <%= spotkanie.grupa %> -->
+              <%=  %>
+            </div>
+            <% if (spotkanie.typies[0].typ) { %>
+            <div class="mecz-typ">Twój typ: <%=spotkanie.typies[0].typ%>
+              <% } else { %>
+              <select style="text-align: center;" class="wybieraczka" name="<%= spotkanie.id %>" id="">
+                <option value="nie-wybrano">wybierz typ</option>
+                <option value="1">1</option>
+                <option value="X">X</option>
+                <option value="2">2</option>
+                <option value="1X">1X</option>
+                <option value="2X">2X</option>
+              </select>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+    </div>
+    <div style="margin: auto; text-align: center; margin: 10px;">
+
+      <button class="btn btn-primary" type="submit">Wyślij typy</button>
+    </div>
+  </form>
+</div>
