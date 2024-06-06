@@ -1,9 +1,34 @@
 <%- include('partial/header.ejs') %>
-<p style="margin:25px; font-size: 1.3rem;">Twoje typy:</p>
-<% if (czyWytypowal == 1) { %>
-  <%- include('partial/mojetypy.ejs') %>
-<% } else { %>
-  <%- include('partial/table.ejs') %>
-<% } %>
-
+<%- include('partial/nav.ejs') %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center"><a href="#czat">Czat</a></div>
+    </div>
+    <div class="row">
+      <div class="col-12 m-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ratione velit veniam accusantium error, asperiores, praesentium eligendi repellendus libero fuga possimus? Esse cumque molestias est placeat, ab consequuntur optio rerum?
+        Est, necessitatibus. Veritatis, tenetur labore exercitationem voluptatem minus doloribus rerum et! Laboriosam consequatur ipsam totam et, mollitia voluptate, saepe illum, ea quod repellendus repellat autem similique distinctio quam non aut.
+        Iste eos fuga totam maiores repudiandae ipsa dolore ut cumque veniam recusandae iure perferendis ab quam, ratione magni voluptate quidem! Tenetur dignissimos consequatur praesentium ut reprehenderit saepe suscipit, placeat aut?
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 m-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ratione velit veniam accusantium error, asperiores, praesentium eligendi repellendus libero fuga possimus? Esse cumque molestias est placeat, ab consequuntur optio rerum?
+        Est, necessitatibus. Veritatis, tenetur labore exercitationem voluptatem minus doloribus rerum et! Laboriosam consequatur ipsam totam et, mollitia voluptate, saepe illum, ea quod repellendus repellat autem similique distinctio quam non aut.
+        Iste eos fuga totam maiores repudiandae ipsa dolore ut cumque veniam recusandae iure perferendis ab quam, ratione magni voluptate quidem! Tenetur dignissimos consequatur praesentium ut reprehenderit saepe suscipit, placeat aut?
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 m-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, ratione velit veniam accusantium error, asperiores, praesentium eligendi repellendus libero fuga possimus? Esse cumque molestias est placeat, ab consequuntur optio rerum?
+        Est, necessitatibus. Veritatis, tenetur labore exercitationem voluptatem minus doloribus rerum et! Laboriosam consequatur ipsam totam et, mollitia voluptate, saepe illum, ea quod repellendus repellat autem similique distinctio quam non aut.
+        Iste eos fuga totam maiores repudiandae ipsa dolore ut cumque veniam recusandae iure perferendis ab quam, ratione magni voluptate quidem! Tenetur dignissimos consequatur praesentium ut reprehenderit saepe suscipit, placeat aut?
+      </div>
+    </div>
+    <div id="czat" class="row">
+      <div class="col-12 m-3">
+        <%- include('partial/czat.ejs') %>
+      </div>
+    </div>
+  </div>
 <%- include('partial/footer.ejs') %>

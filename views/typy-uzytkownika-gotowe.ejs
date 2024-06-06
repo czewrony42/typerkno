@@ -1,4 +1,12 @@
+<%- include('partial/header.ejs') %>
+<%- include('partial/nav.ejs') %>
+
 <div class="container-fluid mt-5">
+    <div style="font-size: 2rem;" class="row">
+        <div>Użytkownik: <%= nazwa.username %></div>
+        <div>Punkty: 0 pkt</div>
+    </div>
+<% if(czyWytypowal == 1) { %>
   <table class="table table-striped">
       <thead>
           <tr>
@@ -22,4 +30,7 @@
           <% }); %>
       </tbody>
   </table>
+  <% } else { %>
+    <p style="font-size: 2rem; text-align: center;">Użytkownik jeszcze nie wypełnił formularza!</p>
+    <% } %>
 </div>

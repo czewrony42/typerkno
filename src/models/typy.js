@@ -24,7 +24,9 @@ Typy.saveTypy = async (data, userId) => {
     });
   }
   const result = await Typy.bulkCreate(typyList);
+  console.log(result);
 };
+
 Typy.getTypy = async (userId) => {
   const typy = await Typy.findAll({
     where: {

@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <form id="form_wiadomosc" action="/czat" method="post">
+      <div class="col-12">
+        <div class="mb-3">
+          <label for="" class="form-label"></label>
+          <p>Wiadomość:</p>
+          <input type="hidden" name="username" value="<%=user.username%>">
+          <textarea id="area_wiadomosc" class="form-control" name="body" id="" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <button id="submit_wiadomosc" class="btn btn-primary" type="submit">Wyślij</button>
+        </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <p>Wiadomości:</p>
+    <ul>
+      <% czat.forEach(function(wiadomosc) { %>
+        <li>
+          <strong>
+            <%= wiadomosc.username%>
+          </strong>: <%=wiadomosc.body%>
+            <p style="font-size: 12px;">
+              <%=wiadomosc.data%>
+            </p>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+</div>
+</div>
+
+<script>
+  function formatPolskaData(data) {
+    let dzien = String(data.getDate()).padStart(2, '0');
+    let miesiac = String(data.getMonth() + 1).padStart(2, '0'); // Miesiące są zero-indeksowane
+    let rok = data.getFullYear();
+    let godziny = String(data.getHours()).padStart(2, '0');
+    let minuty = String(data.getMinutes()).padStart(2, '0');
+    let sekundy = String(data.getSeconds()).padStart(2, '0');
+    return `${dzien}.${miesiac}.${rok} ${godziny}:${minuty}:${sekundy}`;
+  }
+
+  document.querySelector('#submit_wiadomosc').addEventListener('click', function (e) {
+    const tresc = document.querySelector('#area_wiadomosc');
+    const form = document.querySelector('#form_wiadomosc'); // Zmienna odwołująca się do formularza
+
+    e.preventDefault();
+    if (tresc.value.length > 1000) {
+      alert("Za długa wiadomość, maks 1000 znaków u Ciebie jest: " + tresc.value.length);
+    } else {
+      form.submit(); // Odwołanie się do formularza, nie do przycisku
+    }
+  });
+</script>

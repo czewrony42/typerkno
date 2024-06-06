@@ -1,38 +1,29 @@
 const router = require('express').Router()
 const userModel = require('../models/user')
+const isNotAuth = require('../middleware/isNotAuth')
 
-const prevent = (req, res, next) => {
-  if (req.session.login) {
-    res.redirect('/')
-  } else {
-    next()
-  }
-}
-router.get('/login', prevent, (req, res) => {
+router.get('/login', isNotAuth, (req, res) => {
   res.render('login', {})
 })
 
-router.get('/register', prevent, (req, res) => {
+router.get('/register', isNotAuth, (req, res) => {
   res.render('register', {})
 })
 
-router.post('/login', prevent, async (req, res) => {
+router.post('/login', isNotAuth, async (req, res) => {
   const {username, password} = req.body
   const user = await userModel.findOne({
     where: {username: username}
   })
   if (user && username === user.username && password === user.password) {
-    req.session.login = true
-    req.session.username = user.username
-    req.session.userId = user.id
-    
+    req.session.user = {login: true, username: user.username, id: user.id}
     res.redirect('/')
   } else {
     res.render('login', {error: true})
   }
 })
 
-router.post('/register', prevent, async (req, res) => {
+router.post('/register', isNotAuth, async (req, res) => {
   const { username, password, phone } = req.body
   const [user, created] = await userModel.findOrCreate({
     where: { username: username },
@@ -44,8 +35,7 @@ router.post('/register', prevent, async (req, res) => {
     }
   })
   if(created) {
-    req.session.login = true
-    req.session.username = user.username
+    req.session.user = {login: true, username: user.username, id: user.id}
     res.redirect('/')
   } else {
     res.render('register', {error: true})

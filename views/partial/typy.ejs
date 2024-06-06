@@ -2,9 +2,9 @@
   <div class="row">
     <p style="font-size: 1.5rem; font-weight: bold;">Twoje typy:</p>
   </div>
-  <form id="formularz" action="/typy" method="post">
-    <input type="hidden" name="username" value="<%= locals.username %>">
-    <input type="hidden" name="userId" value="<%= locals.userId %>">
+  <form id="formularz" action="/moje-typy" method="post">
+    <input type="hidden" name="username" value="<%= user.username %>">
+    <input type="hidden" name="userId" value="<%= user.id %>">
     <div class="row" style="margin: auto">
     <% spotkania.forEach(function(spotkanie) { %>
     <div class="col-sm-12 col-lg-4">

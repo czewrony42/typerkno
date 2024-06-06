@@ -1,0 +1,41 @@
+<div class="container-fluid mt-5">
+    <div style="font-size: 2rem;" class="row">
+        <div>Moje gotowe typy: <%=user.username%></div>
+        <div>Moje punkty: 0 pkt</div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <%= (spotkania.premium) ? '<img src="star.svg" />' :'' %>
+                            <th scope="col">Drużyna 1</th>
+                            <th scope="col">Drużyna 2</th>
+                            <th scope="col">Grupa</th>
+                            <th scope="col">Typ</th>
+                            <th scope="col">Wynik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% spotkania.forEach(function(row) { %>
+                        <tr>
+                            <td>
+                                <%= row.gospodarz %>
+                            </td>
+                            <td>
+                                <%= row.gosc %>
+                            </td>
+                            <td>
+                                <%= row.grupa %>
+                            </td>
+                            <td>
+                                <%= row.typies[0].typ %>
+                            </td>
+                            <td>Wynik</td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

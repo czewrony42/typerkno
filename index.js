@@ -1,11 +1,11 @@
 const express = require('express')
 const session = require('express-session')
 require('dotenv').config();
+const isAuth = require('./src/middleware/isAuth')
 
-const base_routing = require('./src/routing/base_routing')
+const baseRouting = require('./src/routing/base')
 const auth_routing = require('./src/routing/auth')
 
-const auth_middleware = require('./src/middleware/authMiddleware')
 
 const app = express()
 app.set('view engine', 'ejs')
@@ -24,7 +24,7 @@ app.use(session({
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/', auth_routing)
-app.use('/', auth_middleware, base_routing)
+app.use('/', isAuth, baseRouting)
 
 
 //Server start

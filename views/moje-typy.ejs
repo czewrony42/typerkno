@@ -1,0 +1,10 @@
+<%- include('partial/header.ejs') %>
+<%- include('partial/nav.ejs') %>
+
+<% if (user.wytypowal == 1) { %>
+  <%- include('partial/typy-gotowe.ejs') %>
+<% } else { %>
+  <%- include('partial/typy.ejs') %>
+<% } %>
+
+<%- include('partial/footer.ejs') %>
