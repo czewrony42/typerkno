@@ -8,6 +8,10 @@ const auth_routing = require('./src/routing/auth')
 const auth_middleware = require('./src/middleware/authMiddleware')
 
 const app = express()
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+
+
 app.use(session({
   resave: false,
   saveUninitialized: true,
@@ -19,16 +23,11 @@ app.use(session({
 
 app.use(express.urlencoded({ extended: true }))
 
-// ustawienie szablonu
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
-
-
 app.use('/', auth_routing)
 app.use('/', auth_middleware, base_routing)
 
 
-
+//Server start
 if (process.env.ENV === 'dev') {
   app.listen(3000, () => {
     console.log("serwer działa na: http://localhost:3000");

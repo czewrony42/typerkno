@@ -1,7 +1,7 @@
 <%- include('./partial/header.ejs') %>
 
   <div class="container mt-5">
-    <% if (typeof error !== 'undefined' && error) { %>
+    <% if (typeof error !=='undefined' && error) { %>
       <div class="row">
         <div class="col text-center">
           <div class="alert alert-danger" role="alert">
@@ -10,37 +10,37 @@
         </div>
       </div>
       <% } %>
-      <div class="row">
-        <div class="col col text-center fs-5">
-          <p><a href="/login">Logowanie</a></p>
+        <div class="row">
+          <div class="col col text-center fs-5">
+            <p><a href="/login">Logowanie</a></p>
+          </div>
         </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="text-center">Rejestracja</h3>
-            </div>
-            <div class="card-body">
-              <form action="/register" method="POST">
-                <div class="mb-3">
-                  <label for="username" class="form-label">Nazwa użytkownika</label>
-                  <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="mb-3">
-                  <label for="password" class="form-label">Hasło</label>
-                  <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="mb-3">
-                  <label for="phone" class="form-label">Numer telefonu</label>
-                  <input type="tel" class="form-control" id="phone" name="phone" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Zarejestruj się</button>
-              </form>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="text-center">Rejestracja</h3>
+              </div>
+              <div class="card-body">
+                <form action="/register" method="POST">
+                  <div class="mb-3">
+                    <label for="username" class="form-label">Nazwa użytkownika</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Hasło</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">Numer telefonu</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">Zarejestruj się</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
   </div>
 
   <%- include ('./partial/footer.ejs') %>

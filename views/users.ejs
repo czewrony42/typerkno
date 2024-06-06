@@ -1,0 +1,38 @@
+<%- include('partial/header.ejs') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p style="font-size: 1.5rem;">Liczba aktywnych użytkowników: <%= users.filter((user) => {return user.aktywny === 1}).length %> / Liczba użytkowników: <%= users.length %></p>
+      <div style="margin: 20px 0px"><label for="wyszukiwarka" style="margin-right: 10px;">Wyszukaj:</label><input type="text" name="" id="wyszukiwarka"></div>
+      <ul id="listauzytkownikow">
+        <% users.forEach(function(user) { %>
+          <li class="<%= (user.aktywny === 1) ? 'aktywny' : '' %>"><%=user.username%> <span><a href="/users/<%=user.id%>">typy</a></span></li>  
+          <% }); %>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const wyszukiwarka = document.getElementById('wyszukiwarka');
+  const listaUzytkownikow = document.getElementById('listauzytkownikow');
+  const elementyListy = listaUzytkownikow.querySelectorAll('li');
+
+  wyszukiwarka.addEventListener('input', function() {
+    const wyszukiwanaFraza = wyszukiwarka.value.toLowerCase();
+
+    elementyListy.forEach(function(element) {
+      const nazwaUzytkownika = element.textContent.toLowerCase();
+      if (nazwaUzytkownika.includes(wyszukiwanaFraza)) {
+        element.style.display = 'block';
+      } else {
+        element.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+
+<%- include('partial/footer.ejs') %>

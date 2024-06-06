@@ -1,4 +1,4 @@
-const {Sequelize, DataTypes} = require("sequelize")
+const { Sequelize, DataTypes } = require("sequelize")
 const sequelize = new Sequelize('sqlite:src/db.sqlite')
 
 const User = sequelize.define('users', {
@@ -18,6 +18,6 @@ const User = sequelize.define('users', {
     type: DataTypes.INTEGER,
     allowNull: false
   }
-}, {timestamps: false})
+}, { timestamps: false, tableName: 'users' })
 
 module.exports = User

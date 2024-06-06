@@ -1,9 +1,10 @@
 <%- include('partial/header.ejs') %>
-<p style="margin:25px; font-size: 1.3rem;">Twoje typy:</p>
+
 <% if (czyWytypowal == 1) { %>
+  <p style="margin:25px; font-size: 1.3rem;">Typy użytkownika: <%=username.username%></p>
   <%- include('partial/mojetypy.ejs') %>
 <% } else { %>
-  <%- include('partial/table.ejs') %>
+  <p>Użytkownik nie wypełnił jeszcze formularza</p>
 <% } %>
 
 <%- include('partial/footer.ejs') %>

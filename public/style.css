@@ -1,3 +1,7 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+}
 .mecz-body {
   width: 90%;
   height: 150px;
@@ -16,25 +20,37 @@
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.mecz-data, .mecz-grupa {
+.mecz-data,
+.mecz-grupa {
   margin-top: 5px;
   text-align: center;
   font-size: 1rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .mecz-typ {
   font-size: 1.3rem;
   text-align: center;
   font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #footer {
+  background-color: tomato;
   font-size: 1.4rem;
+  margin: 20px 0px;
   font-weight: bold;
-  font-family: fantasy, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+#footer > a {
+  color: rgb(61, 214, 0);
+}
+
+#footer > a:hover {
+  color: rgb(80,200,10)
+}
+
+#listauzytkownikow > li.aktywny {
+  font-size: 1.3rem;
+  font-weight: bold;
 }

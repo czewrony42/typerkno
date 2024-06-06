@@ -24,20 +24,21 @@ const Mecz = sequelize.define('mecze', {
   wynik: {
     type: DataTypes.TEXT,
   },
+  premium: {
+    type: DataTypes.INTEGER,
+  }
 }, { timestamps: false, tableName: "mecze" });
 
-Mecz.hasMany(Typy, { 
-  foreignKey: 'mecz_id',
-  where: { user_id: 1 } // Warunek user_id
-});
-Typy.belongsTo(Mecz, { foreignKey: "mecz_id" });
+Mecz.hasMany(Typy, { foreignKey: 'mecz_id' });
+Typy.belongsTo(Mecz, { foreignKey: 'mecz_id' });
 
 Mecz.getMecze = async (userID) => {
   const mecze = await Mecz.findAll({
-    include: {
+    include: [{
       model: Typy,
-      where: {user_id: userID}
-    }
+      where: { user_id: userID },
+      required: false
+    }]
   });
   return mecze;
 };
