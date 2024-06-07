@@ -1,6 +1,7 @@
 <div class="container-fluid mt-5">
     <div style="font-size: 2rem;" class="row">
-        <div>Moje gotowe typy: <%=user.username%></div>
+        <div>Moje gotowe typy: <%=user.username%>
+        </div>
         <div>Moje punkty: 0 pkt</div>
     </div>
     <div class="row">
@@ -8,12 +9,11 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <%= (spotkania.premium) ? '<img src="star.svg" />' :'' %>
-                            <th scope="col">Drużyna 1</th>
-                            <th scope="col">Drużyna 2</th>
-                            <th scope="col">Grupa</th>
-                            <th scope="col">Typ</th>
-                            <th scope="col">Wynik</th>
+                        <th scope="col">Drużyna 1</th>
+                        <th scope="col">Drużyna 2</th>
+                        <th scope="col">Grupa</th>
+                        <th scope="col">Typ</th>
+                        <th scope="col">Wynik</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +22,7 @@
                             <td>
                                 <%= row.gospodarz %>
                             </td>
+
                             <td>
                                 <%= row.gosc %>
                             </td>
@@ -32,6 +33,7 @@
                                 <%= row.typies[0].typ %>
                             </td>
                             <td>Wynik</td>
+                            <td><span style="margin-left: 15px;"><%- (row.premium) ? '<img src="/star.svg" />' :'' %></span></td>
                         </tr>
                         <% }); %>
                 </tbody>

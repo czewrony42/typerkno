@@ -3,6 +3,7 @@
 
 <div class="container-fluid mt-5">
     <div style="font-size: 2rem;" class="row">
+        <div><a href="/typy"><button class="btn btn-primary">powrót na poprzednią strone</button></a></div>
         <div>Użytkownik: <%=nazwa?.username%></div>
         <div>Punkty: 0 pkt</div>
     </div>
@@ -26,6 +27,7 @@
                   <td><%= row.grupa %></td>
                   <td><%= row.typies[0].typ %></td>
                   <td>Wynik</td>
+                  <td><span style="margin-left: 15px;"><%- (row.premium) ? '<img src="/star.svg" />' :'' %></span></td>
               </tr>
           <% }); %>
       </tbody>

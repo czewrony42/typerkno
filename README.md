@@ -1,9 +1,8 @@
 TODO:
-1. Obliczanie punktów
-3. Typy innych użytkowników
+1. Strona główna z wiadomościami
+ - dodawanie wiadomosci przez admina, wyświetlane na stronie głównej
+ 2. Powitanie na stronie głównej
+ 3. partial/punktacja.ejs do podstarony z typami 
 
-#1
-1. Do funkcji przekazujemy id użytkownika 
-2. w funkcji pobieramy meczy wraz z wynikami oraz typy użytkownika (funkcja z modelu Mecze)
-3. w pętli obliczamy ilośc punktów
-    -jeżeli mecz jest premium stosujemy inną punktacje jeżeli typ jest trafiony
+ 5. zakładka ranking
+ 6. funkcja podliczajaca punkty użytkownika
